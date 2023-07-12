@@ -41,6 +41,10 @@ or Postman:
 
 Ensure that the pdf and xml parameters match the file names.
 
+Result:
+
+<img src="image/img_1.png" alt="image2" />
+
 ## Contact
 
 This project was created by [Eukolos](https://github.com/Eukolos). Contributions are welcome! 
