@@ -24,7 +24,7 @@ public class XmlService {
             Document document = builder.parse(xml.getInputStream());
 
             return InvoiceElements.builder()
-                    .invoiceDate(document.getElementsByTagName("NUMBER").item(0).getTextContent())
+                    .invoiceDate(document.getElementsByTagName("DATE").item(0).getTextContent())
                     .invoiceNumber(document.getElementsByTagName("NUMBER").item(0).getTextContent())
                     .invoiceSender(document.getElementsByTagName("SENDER_DEF").item(0).getTextContent())
                     .totalPrice(document.getElementsByTagName("TOTAL_NET").item(0).getTextContent())

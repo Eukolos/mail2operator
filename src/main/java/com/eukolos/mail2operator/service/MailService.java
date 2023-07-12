@@ -28,16 +28,34 @@ public class MailService {
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
         MimeMessageHelper mimeMessageHelper;
 
+        String messageText =
+                "Murat Bey Merhaba,\n\n" +
+                "EK’teki " + elements.getInvoiceDate() +" tarihindeki ve " + elements.getTotalPrice() +" " + elements.getCurrency() +" tutarındaki " + elements.getInvoiceNumber() +"NO’lu fatura hangi firma için düzenlenmiştir ve onay rica ederim.\n\n" +
+                "İyi Çalışmalar;\n\n" +
+                "Muhammet Emin AKSOY\n" +
+                "Muhasebe Personeli\n\n" +
+                "t: +90 212 671 21 02\n" +
+                "f: +90 212 671 21 83\n\n" +
+                "m.aksoy@rantech.com.tr\n" +
+                "www.rantech.com.tr\n\n" +
+                "Main Office | Merkez Ofis\n" +
+                "AYZ Yedek Parça Pazarlama Ltd. Şti.\n" +
+                "15 Temmuz Mah. Bahar Cad. No:73 A Blok Daire.57\n" +
+                "Ark Residence Güneşli – Bağcılar / İSTANBUL\n" +
+                "Tel. 0212 671 21 02  Fax. 0212 671 21 83\n";
+
         try {
 
             mimeMessageHelper = new MimeMessageHelper(mimeMessage, true);
             mimeMessageHelper.setFrom(sender);
             mimeMessageHelper.setTo(sender);
-            mimeMessageHelper.setText(elements.toString());
-            mimeMessageHelper.setSubject("deneme");
+            mimeMessageHelper.addCc("n.kaya@rantech.com.tr");
+            mimeMessageHelper.addCc("e.barut@rantech.com.tr");
+            mimeMessageHelper.setText(messageText);
+            mimeMessageHelper.setSubject(elements.getInvoiceSender() + " FATURA ONAY HK.");
 
             mimeMessageHelper.addAttachment(
-                    Objects.requireNonNull(pdf.getOriginalFilename()), pdf);
+                    elements.getInvoiceNumber()+".pdf", pdf);
 
             // Sending the mail
             javaMailSender.send(mimeMessage);
