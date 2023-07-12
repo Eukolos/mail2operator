@@ -50,5 +50,3 @@ Result:
 This project was created by [Eukolos](https://github.com/Eukolos). Contributions are welcome! 
 
 If you have any questions or suggestions, feel free to contact the project maintainer at eminaksoy35@gmail.com.
-
-That's it! You now have a README.md file in Markdown format for your Spring Boot project. Feel free to modify it according to your project's specific requirements.
